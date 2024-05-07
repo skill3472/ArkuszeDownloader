@@ -12,6 +12,8 @@ Oryginalnie stworzony na własne potrzeby, ale uznałem, że go opublikuje, moż
 ## Jak używać?
 Zmień potrzebne ustawienia w pliku `config.yaml` i uruchom program za pomocą `python3 app.py`
 
+---
+
 ### Kody błędu:
 - 201: Numer wybranego arkusza nie jest prawidłowy (musisz podać liczbę).
 - 202: Błąd w pobieraniu plików - otwórz Issue na GitHubie i napisz jaki arkusz próbowałeś/aś pobrać
