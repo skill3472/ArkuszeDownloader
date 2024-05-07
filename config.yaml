@@ -1,8 +1,8 @@
-used_subject: "ANG8SP"
+used_subject: "INFR"
 download_to: "D:/Arkusze/" # Musi sie konczyc na /
-# Czy uzywac kodu miesiecy jako nazwy folderow? false - Maj 2024, true - 2405
-month_codes: false
-url: "https://arkusze.pl/"
+month_codes: false # Czy uzywac kodu miesiecy jako nazwy folderow? false - Maj 2024, true - 2405
+add_shortcut: true # Czy dodawać skrót do filmu na YouTube (np. J. Angielski słuchanie). WINDOWS ONLY
+url: "https://arkusze.pl/" # Nie zmieniac, chyba ze strona zostanie przeniesiona
 available_subjects: # NIE EDYTOWAĆ
   - "ANG8SP" # Angielski, egzamin 8-klasisty
   - "ANGP" # Angielski, matura podstawowa

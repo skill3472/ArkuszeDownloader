@@ -23,4 +23,6 @@ Zmień potrzebne ustawienia w pliku `config.yaml` i uruchom program za pomocą `
 
 ### W planach
 - Pytanie się użytkownika o przedmiot, zamiast ustawianie go w configu
-- Pobieranie słuchania do niektórych arkuszy (np. J. Angielski)
+- ~~Pobieranie słuchania do niektórych arkuszy (np. J. Angielski).~~ Na razie feature zamieniony na dodawanie skrótu. PyTube ma błąd i wprowadzenie tego wymaga ode mnie za dużo wysiłku. Jeśli ktoś ma siłę się z tym bawić, zapraszam do otwarcia PR :)
+- Dodanie szybszego użycia za pomocą argparse (np. `python3 app.py 2304`) zeby pobrac arkusz z kwietnia 2023
+- Dodanie więcej przedmiotów

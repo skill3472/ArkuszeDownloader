@@ -64,6 +64,8 @@ def GetAttachmentUrlsFromUrl(sheet_url):
 def DownloadFileFromUrl(file_url, target_path="."):
     r = req.get(file_url)
     match = re.search(r"https://arkusze\.pl/\w+/(.*)", file_url)
+    if not match:
+        return False
     filename = match.group(1)
     if r.status_code == 200:
         with open(f'{target_path}/{filename}', 'wb') as f:
@@ -88,3 +90,27 @@ def DateToDatecode(date):
     yearCode = year[2:]
     monthCode = MONTH_TO_NUMBER[month]
     return yearCode + monthCode
+
+
+def GetYoutubeIDFromUrl(url) -> str or None:
+    r = req.get(url)
+    html = r.text
+    exp = r"&quot;youtubeID&quot;:&quot;(.{11})&quot;"
+    match = re.search(exp, html)
+    if match and match.group(1):
+        return match.group(1)
+    else:
+        return None
+
+
+def CreateYoutubeShortcut(video_id, target_path=".") -> bool:
+    url = 'https://www.youtube.com/watch?v=' + video_id
+    path = target_path + "/Nagranie.url"
+    try:
+        with open(path, 'w') as f:
+            f.write('[InternetShortcut]\n')
+            f.write(f'URL={url}')
+            f.close()
+            return True
+    except:
+        return False

@@ -31,6 +31,8 @@ if wybrany_arkusz is None:
     print('To nie jest prawidlowy arkusz!')
     quit(201)
 
+print("Pobieram arkusz...")
+
 wybrany_url = wybrany_arkusz['href']
 zalaczniki = ark.GetAttachmentUrlsFromUrl(wybrany_url)
 path = CONFIG['download_to'] + CONFIG['used_subject']
@@ -44,4 +46,9 @@ for zalacznik in zalaczniki:
     if not ark.DownloadFileFromUrl(zalacznik, path):
         print("Blad w pobieraniu plikow!")
         quit(202)
-print("Pobrano pliki!")
+print("Pobrano arkusze!")
+ytID = ark.GetYoutubeIDFromUrl(wybrany_url)
+if ytID and CONFIG["add_shortcut"]:
+    print("Dodaje skrót do YouTube...")
+    if ark.CreateYoutubeShortcut(ytID, path):
+        print("Pomyślnie dodano skrót!")
