@@ -1,0 +1,10 @@
+used_subject: "ANG8SP"
+download_to: "D:/Arkusze/" # Musi sie konczyc na /
+# Czy uzywac kodu miesiecy jako nazwy folderow? false - Maj 2024, true - 2405
+month_codes: false
+url: "https://arkusze.pl/"
+available_subjects: # NIE EDYTOWAĆ
+  - "ANG8SP" # Angielski, egzamin 8-klasisty
+  - "ANGP" # Angielski, matura podstawowa
+  - "ANGR" # Angielski, matura rozszerzona
+  - "INFR" # Informatyka, matura rozszerzona
