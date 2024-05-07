@@ -1,4 +1,6 @@
 ﻿# Arkusze.pl Downloader
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/skill3472/ArkuszeDownloader/total?style=flat-square)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/skill3472/ArkuszeDownloader?style=flat-square)
 
 Program stworzony do szybkiego pobierania arkuszy ze strony Arkusze.pl.
 Oryginalnie stworzony na własne potrzeby, ale uznałem, że go opublikuje, może komuś się przyda.
@@ -12,7 +14,7 @@ Oryginalnie stworzony na własne potrzeby, ale uznałem, że go opublikuje, moż
 ## Jak używać?
 Zmień potrzebne ustawienia w pliku `config.yaml` i uruchom program za pomocą `python3 app.py`
 
----
+#
 
 ### Kody błędu:
 - 201: Numer wybranego arkusza nie jest prawidłowy (musisz podać liczbę).
