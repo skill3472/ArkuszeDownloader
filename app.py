@@ -16,7 +16,7 @@ arkusze = ark.GetSheetsDictFromUrl(subject_url)
 i = 0
 for arkusz in arkusze:
     i += 1
-    print(f'{i}. {arkusz['date']} - {arkusz["name"]}')
+    print(f'{i}. {arkusz["date"]} - {arkusz["name"]}')
 
 selected = int(input('Wybierz arkusz do pobrania: '))
 wybrany_arkusz = None
