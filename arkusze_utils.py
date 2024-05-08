@@ -10,7 +10,10 @@ CODE_TO_PATH = {
     "INFR": "informatyka-matura-poziom-rozszerzony/",
     "MAT8SP": "matematyka-egzamin-osmoklasisty/",
     "MATP": "matematyka-matura-poziom-podstawowy/",
-    "MATR": "matematyka-matura-poziom-rozszerzony/"
+    "MATR": "matematyka-matura-poziom-rozszerzony/",
+    "POL8SP": "jezyk-polski-egzamin-osmoklasisty/",
+    "POLP": "jezyk-polski-matura-poziom-podstawowy/",
+    "POLR": "jezyk-polski-matura-poziom-rozszerzony/"
 }
 MONTH_TO_NUMBER = {
     "Styczeń": "01",
@@ -62,7 +65,10 @@ def GetAttachmentUrlsFromUrl(sheet_url):
     sheet_soup = BeautifulSoup(sheet_page.content, 'html.parser')
     attachments = []
     for attachment in sheet_soup.findAll('div', class_='msgbox msgbox-arkusz'):
-        attachments.append(attachment.find('a')['href'])
+        try:
+            attachments.append(attachment.find('a')['href'])
+        except TypeError:
+            continue
 
     return attachments
 
@@ -121,3 +127,29 @@ def CreateYoutubeShortcut(video_id, target_path=".") -> bool:
             return True
     except:
         return False
+
+
+def IsValidDateCode(code) -> bool:
+    try:
+        exp = r"^\d\d(0[1-9]|1[0-2])$"
+        match = re.search(exp, code)
+        if match:
+            return True
+        else:
+            return False
+    except TypeError:
+        return False
+
+
+def GetSheetFromDateCode(datecode, sheetList):
+    validdates = [i["date"] for i in sheetList]
+    num_to_month = {v: k for k, v in MONTH_TO_NUMBER.items()}
+    year_code = datecode[:2]
+    month_code = datecode[2:4]
+    date = num_to_month[month_code] + " 20" + year_code
+    if date not in validdates:
+        return None
+    for sheet in sheetList:
+        if sheet['date'] == date:
+            return sheet
+    return None

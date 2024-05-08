@@ -1,4 +1,4 @@
-used_subject: "INFR"
+used_subject: "INFR" # Używany kod przedmiotu, można nadpisać za pomocą -s, albo używać na sztywno z tego pliku, jeśli używasz aplikacji do jednego przedmiotu.
 download_to: "D:/Arkusze/" # Musi sie konczyc na /
 month_codes: false # Czy uzywac kodu miesiecy jako nazwy folderow? false - Maj 2024, true - 2405
 add_shortcut: true # Czy dodawać skrót do filmu na YouTube (np. J. Angielski słuchanie). WINDOWS ONLY
@@ -11,3 +11,6 @@ available_subjects: # NIE EDYTOWAĆ
   - "MAT8SP" # Matematyka, egzamin 8-klasisty
   - "MATP" # Matematyka, matura podstawowa
   - "MATR" # Matematyka, matura rozszerzona
+  - "POL8SP" # Polski, egzamin 8-klasisty
+  - "POLP" # Polski, matura podstawowa
+  - "POLR" # Polski, matura rozszerzon
