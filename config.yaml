@@ -8,3 +8,6 @@ available_subjects: # NIE EDYTOWAĆ
   - "ANGP" # Angielski, matura podstawowa
   - "ANGR" # Angielski, matura rozszerzona
   - "INFR" # Informatyka, matura rozszerzona
+  - "MAT8SP" # Matematyka, egzamin 8-klasisty
+  - "MATP" # Matematyka, matura podstawowa
+  - "MATR" # Matematyka, matura rozszerzona

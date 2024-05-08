@@ -11,18 +11,37 @@ Oryginalnie stworzony na własne potrzeby, ale uznałem, że go opublikuje, moż
 
 ## Jak używać?
 Zmień potrzebne ustawienia w pliku `config.yaml` i uruchom program za pomocą `python3 app.py`
+## Wersja zaawansowana
+```
+usage: ArkuszeDownloader [-h] [-s SUBJECT] [-a] [-v]
+
+options:
+  -h, --help            show this help message and exit
+  -s SUBJECT, --subject SUBJECT, --przedmiot SUBJECT
+                        Podaj przedmiot (zastapi przedmiot z config.yaml na to
+                        uruchomienie).
+  -a, --all, --wszystkie
+                        Pobiera wszystkie dostępne arkusze, może zająć trochę
+                        czasu.
+  -v, --version         Pokaż wersję programu.
+```
+
+### Wspierane przedmioty
+- J. Angielski
+- Informatyka
+- Matematyka
 
 ### Kody błędu:
 - 201: Numer wybranego arkusza nie jest prawidłowy (musisz podać liczbę).
 - 202: Błąd w pobieraniu plików - otwórz Issue na GitHubie i napisz jaki arkusz próbowałeś/aś pobrać
 - 203: Nieprawidłowy kod przedmiotu - podaj prawidłowy kod przedmiotu (lista w pliku config.yaml)
+- 204: Nieprawidlowy numer arkusza, pewnie literowka, jesli nie napisz do mnie.
 
 ### Credits:
 - Maksymilian Tym
 - Specjalne podziękowania dla autora strony Arkusze.pl (jeśli chcesz, żebym usunął to repozytorium, skontaktuj się ze mną)
 
 ### W planach
-- Pytanie się użytkownika o przedmiot, zamiast ustawianie go w configu
 - ~~Pobieranie słuchania do niektórych arkuszy (np. J. Angielski).~~ Na razie feature zamieniony na dodawanie skrótu. PyTube ma błąd i wprowadzenie tego wymaga ode mnie za dużo wysiłku. Jeśli ktoś ma siłę się z tym bawić, zapraszam do otwarcia PR :)
 - Dodanie szybszego użycia za pomocą argparse (np. `python3 app.py 2304`) zeby pobrac arkusz z kwietnia 2023
 - Dodanie więcej przedmiotów

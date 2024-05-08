@@ -7,7 +7,10 @@ CODE_TO_PATH = {
     "ANG8SP": "jezyk-angielski-egzamin-osmoklasisty/",
     "ANGP": "jezyk-angielski-matura-poziom-podstawowy/",
     "ANGR": "jezyk-angielski-matura-poziom-rozszerzony/",
-    "INFR": "informatyka-matura-poziom-rozszerzony/"
+    "INFR": "informatyka-matura-poziom-rozszerzony/",
+    "MAT8SP": "matematyka-egzamin-osmoklasisty/",
+    "MATP": "matematyka-matura-poziom-podstawowy/",
+    "MATR": "matematyka-matura-poziom-rozszerzony/"
 }
 MONTH_TO_NUMBER = {
     "Styczeń": "01",
@@ -38,15 +41,18 @@ def GetSheetsDictFromUrl(subject_url):
 
     arkusze = []
     for arkusz in tabela_arkuszy.findAll('tr'):
-        obj = {}
-        date = arkusz.find('td', class_='column-1').string
-        obj['date'] = date
-        href = arkusz.find('a')['href']
-        obj['href'] = href
-        name = arkusz.find('a').string
-        obj['name'] = name
+        try:
+            obj = {}
+            date = arkusz.find('td', class_='column-1').string
+            obj['date'] = date
+            href = arkusz.find('a')['href']
+            obj['href'] = href
+            name = arkusz.find('a').string
+            obj['name'] = name
 
-        arkusze.append(obj)
+            arkusze.append(obj)
+        except TypeError:
+            continue
 
     return arkusze
 
@@ -63,10 +69,11 @@ def GetAttachmentUrlsFromUrl(sheet_url):
 
 def DownloadFileFromUrl(file_url, target_path="."):
     r = req.get(file_url)
-    match = re.search(r"https://arkusze\.pl/\w+/(.*)", file_url)
+    match = re.search(r"[^\/]+(?=(\.pdf|\.zip)$)", file_url)
     if not match:
         return False
-    filename = match.group(1)
+    filename = match.group(0) + match.group(1)
+    print(filename)
     if r.status_code == 200:
         with open(f'{target_path}/{filename}', 'wb') as f:
             f.write(r.content)
